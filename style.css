@@ -1,0 +1,52 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+.gradient-bg {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+.chat-container {
+	height: calc(100vh - 400px);
+	overflow-y: auto;
+}
+
+.typing-indicator::after {
+	content: '...';
+	animation: typing 1s infinite;
+}
+
+@keyframes typing {
+	0% { content: '.'; }
+	33% { content: '..'; }
+	66% { content: '...'; }
+}
+
+.message {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.bot-message iframe {
+	width: 100%;
+	border: none;
+	min-height: 100px;
+}
